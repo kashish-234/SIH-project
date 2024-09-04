@@ -1,8 +1,8 @@
-import { Canvas } from '@react-three/fiber';
+import { Canvas, useFrame } from '@react-three/fiber';
 import { useRef, useEffect } from 'react';
-import { Mesh, TextureLoader, SphereGeometry, MeshStandardMaterial, Color, Vector3 } from 'three';
-import { useFrame } from '@react-three/fiber';
+import { Mesh, Vector3 }from 'three';
 import Lenis from '@studio-freight/lenis';
+import { TextureLoader } from 'three';
 
 const Earth: React.FC = () => {
   const earthRef = useRef<Mesh>(null!);

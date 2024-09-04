@@ -1,6 +1,7 @@
 import { useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import Lenis from '@studio-freight/lenis';
+import styles from './VideoScroll.module.css'; // Import the CSS module
 
 const VideoScroll: React.FC = () => {
   const videoRef = useRef<HTMLVideoElement>(null!);
@@ -37,11 +38,11 @@ const VideoScroll: React.FC = () => {
   }, []);
 
   return (
-    <div style={{ position: 'relative', overflow: 'hidden', height: '100vh' }}>
+    <div className={styles.videoContainer}>
       <video
         ref={videoRef}
         src="/bg.mp4" // Replace with your video path
-        style={{ width: '100%', height: '100%', objectFit: 'cover', position: 'fixed', top: 0, left: 0 }}
+        className={styles.videoElement}
         muted
         playsInline
       />
@@ -65,8 +66,7 @@ const VideoScroll: React.FC = () => {
           ↓
         </motion.div>
         <motion.div
-          className="text-white tracking-widest"
-          style={{ writingMode: 'vertical-rl', transform: 'rotate(180deg)' }}
+          className={`text-white tracking-widest ${styles.scrollText}`}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 1.2 }}
